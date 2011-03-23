@@ -1,6 +1,6 @@
 <?php
-// this is just my implentation of 
-// http://kovshenin.com/archives/twitter-api-pin-based-oauth-php/
+// this is just my implentation of code from
+// http://articles.sitepoint.com/article/oauth-for-php-twitter-apps-part-1
 // well worth a read if you're setting up your own Twitter bot
 
 // Retrieve our previously generated request token & secret
