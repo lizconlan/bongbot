@@ -1,0 +1,19 @@
+1/ Register a twitter account for your bot
+
+2/ While logged in to the bot's account, click on http://twitter.com/apps/new and generate a new application registration
+
+3/ Paste your freshly minted Consumer key into the code wherever it says YOUR_TWITTER_CONSUMER_KEY
+
+4/ Paste your freshly minted Consumer secret into the code wherever it says YOUR_TWITTER_CONSUMER_SECRET
+
+5/ Download Abraham Williams' twitteroauth - http://github.com/abraham/twitteroauth and unpack it to a subdirectory called twitteroauth
+
+6/ Upload register.php and validate.php to your web server
+
+7/ View register.php in a browser and follow the steps, taking care to note down the pin number that appears at the end
+
+8/ View validate.php in a browser, with the querystring pin= followed by the pin number from step 7
+
+9/ Once you are happy the registration process has been a success, delete validate.php and register.php from your live server (or at least move them to an obscure directory)
+
+10/ Create a cron job to run schedule_me.php at regular intervals
