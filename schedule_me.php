@@ -24,6 +24,8 @@ if ($hour > 12) {
   $hour -= 12;
 }
 
+$is_new_year = ($hour == 0 && $time->format("m") == "01" && $time->format("d") == "01");
+
 // Tweet if it's the top of the hour (and it's not the hour we were just in, that would be weird)
 if ($time->format("i") == "00" && $time->format("H") != $last_tweet[0]) {
   // Read in our saved access token/secret
@@ -34,7 +36,16 @@ if ($time->format("i") == "00" && $time->format("H") != $last_tweet[0]) {
   require_once("twitteroauth/twitteroauth/twitteroauth.php");
   $oauth = new TwitterOAuth('YOUR_TWITTER_CONSUMER_KEY','YOUR_TWITTER_CONSUMER_SECRET', $accessToken, $accessTokenSecret);
   
-  $message = rtrim(str_repeat("Bong! ", $hour));
+  // don't forget midnight!
+  if ($hour == 0) {
+    $hour = 12;
+  }
+  
+  if ($is_new_year) {
+    $message = "Happy New Year!";
+  } else {
+    $message = rtrim(str_repeat("Bong! ", $hour));
+  }
   echo $message;
   $oauth->post('statuses/update', array('status' => $message));
   file_put_contents("last_update", $current_tweet);
